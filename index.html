@@ -48,6 +48,33 @@
         </div>
     </div>
     <script>
+
+        const checkboxes = document.querySelectorAll(".inbox input[type='checkbox']");
+
+        let inBetween = false;
+
+        function handleCheck(e) {
+            console.log(e);
+
+            // Check if shfit key is down AND if task was checked
+            if (e.shiftKey && this.checked) {
+                // loop over each checkbox
+                checkboxes.forEach(checkbox => {
+
+                    if (checkbox === this || checkbox === lastChecked) {
+                        inBetween = !inBetween
+                    }
+
+                    if (inBetween) {
+                        checkbox.checked = true
+                    }
+                })
+            }
+
+            lastChecked = this;
+        }
+
+        checkboxes.forEach(checkbox => checkbox.addEventListener("click", handleCheck));
     </script>
 
 </body>
