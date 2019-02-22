@@ -17,3 +17,9 @@ h1 {
     margin: 0 auto;
     border-radius: 20px;
 }
+
+input:checked + p {
+    text-decoration: line-through;
+    background: rgb(255, 196, 0);
+    color: white;
+}
